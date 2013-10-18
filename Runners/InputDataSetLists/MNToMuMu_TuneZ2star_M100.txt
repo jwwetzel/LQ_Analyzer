@@ -1,0 +1,11 @@
+dcache:/pnfs/cms/WAX/11/store/user/jwwetzel/MAJ/MajoranaSkims/MNToMuMu_TuneZ2star_M100/RootTupleMakerV2_output_MNToMuMu_TuneZ2star_M100_10_1_i20.root
+dcache:/pnfs/cms/WAX/11/store/user/jwwetzel/MAJ/MajoranaSkims/MNToMuMu_TuneZ2star_M100/RootTupleMakerV2_output_MNToMuMu_TuneZ2star_M100_3_1_22D.root
+dcache:/pnfs/cms/WAX/11/store/user/jwwetzel/MAJ/MajoranaSkims/MNToMuMu_TuneZ2star_M100/RootTupleMakerV2_output_MNToMuMu_TuneZ2star_M100_6_2_CK6.root
+dcache:/pnfs/cms/WAX/11/store/user/jwwetzel/MAJ/MajoranaSkims/MNToMuMu_TuneZ2star_M100/RootTupleMakerV2_output_MNToMuMu_TuneZ2star_M100_7_1_ADE.root
+dcache:/pnfs/cms/WAX/11/store/user/jwwetzel/MAJ/MajoranaSkims/MNToMuMu_TuneZ2star_M100/RootTupleMakerV2_output_MNToMuMu_TuneZ2star_M100_8_1_trR.root
+dcache:/pnfs/cms/WAX/11/store/user/jwwetzel/MAJ/MajoranaSkims/MNToMuMu_TuneZ2star_M100/RootTupleMakerV2_output_MNToMuMu_TuneZ2star_M100_11_1_fNv.root
+dcache:/pnfs/cms/WAX/11/store/user/jwwetzel/MAJ/MajoranaSkims/MNToMuMu_TuneZ2star_M100/RootTupleMakerV2_output_MNToMuMu_TuneZ2star_M100_2_1_5ZQ.root
+dcache:/pnfs/cms/WAX/11/store/user/jwwetzel/MAJ/MajoranaSkims/MNToMuMu_TuneZ2star_M100/RootTupleMakerV2_output_MNToMuMu_TuneZ2star_M100_5_1_SAO.root
+dcache:/pnfs/cms/WAX/11/store/user/jwwetzel/MAJ/MajoranaSkims/MNToMuMu_TuneZ2star_M100/RootTupleMakerV2_output_MNToMuMu_TuneZ2star_M100_1_1_sH5.root
+dcache:/pnfs/cms/WAX/11/store/user/jwwetzel/MAJ/MajoranaSkims/MNToMuMu_TuneZ2star_M100/RootTupleMakerV2_output_MNToMuMu_TuneZ2star_M100_4_1_yVs.root
+dcache:/pnfs/cms/WAX/11/store/user/jwwetzel/MAJ/MajoranaSkims/MNToMuMu_TuneZ2star_M100/RootTupleMakerV2_output_MNToMuMu_TuneZ2star_M100_9_1_rpj.root

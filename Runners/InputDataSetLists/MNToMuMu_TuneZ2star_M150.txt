@@ -1,0 +1,1 @@
+dcache:/pnfs/cms/WAX/11/store/user/jwwetzel/MAJ/MajoranaSkims/MNToMuMu_TuneZ2star_M150/RootTupleMakerV2_MNToMuMu_TuneZ2star_M150_3_1_MHW.root

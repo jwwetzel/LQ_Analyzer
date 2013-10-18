@@ -1,0 +1,1 @@
+file:/uscmst1b_scratch/lpc1/lpcphys/jwwetzel/Majorana/MajoranaSkims/MC_Signal_MNtoMuMu/Combined_MN_Mass_275.root
