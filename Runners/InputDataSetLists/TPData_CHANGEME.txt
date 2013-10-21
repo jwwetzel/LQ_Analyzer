@@ -1,0 +1,1 @@
+dcache:/pnfs/cms/WAX/11/store/user/fgior8/Summer12LQ_tag11/DY_50_jets/RootTupleMakerV2_output_MC_435_2_nkL.root

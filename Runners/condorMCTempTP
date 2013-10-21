@@ -1,0 +1,11 @@
+universe = vanilla
+Executable = run_condor_MC_CHANGEME.sh
+Requirements = Memory >= 199 &&OpSys == "LINUX"&& (Arch != "DUMMY" )&& Disk > 1000000
+Should_Transfer_Files = YES
+WhenToTransferOutput = ON_EXIT
+Output = DY_TPStudy_CHANGEME.stdout
+Error = DY_TPStudy_CHANGEME.stderr
+Log = DY_TPStudy_CHANGEME.log
+notify_user = jwwetzel@fnal.gov
+arguments = AllData
+Queue 1

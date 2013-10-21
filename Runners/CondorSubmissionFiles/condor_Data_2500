@@ -1,0 +1,11 @@
+universe = vanilla
+Executable = run_condor_Data_2500.sh
+Requirements = Memory >= 199 &&OpSys == "LINUX"&& (Arch != "DUMMY" )&& Disk > 1000000
+Should_Transfer_Files = YES
+WhenToTransferOutput = ON_EXIT
+Output = Data_TPStudy_2500.stdout
+Error = Data_TPStudy_2500.stderr
+Log = Data_TPStudy_2500.log
+notify_user = jwwetzel@fnal.gov
+arguments = AllData
+Queue 1

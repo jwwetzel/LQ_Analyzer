@@ -1,15 +1,12 @@
 #!/bin/sh
 
-#cd /uscms/home/jwwetzel/WorkingArea/Majorana/CMSSW_5_3_8_LQ/test/LQ_Analyzer/
-#source /uscmst1/prod/sw/cms/bashrc prod
-#echo `pwd`
-#eval `scramv1 runtime -sh`
+cd /uscms/home/jwwetzel/WorkingArea/Majorana/CMSSW_5_3_8_LQ/test/LQ_Analyzer/
+source /uscmst1/prod/sw/cms/bashrc prod
+echo `pwd`
+eval `scramv1 runtime -sh`
 
 clusterNumber=$1
-#cd ${_CONDOR_SCRATCH_DIR}
-
-#echo "Seeds:"
-#echo $var0 $var1
+cd ${_CONDOR_SCRATCH_DIR}
 
 cat > rootiamo_job${clusterNumber}.C<<EOF
 {
