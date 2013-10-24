@@ -24,8 +24,10 @@ using std::endl;
 using std::cout;
 using std::string;
 
-void calcTPEfficiency()
+void calcTPEfficiency(bool debug)
 {
+  if (debug) cout << endl << "***** RUNNING IN DEBUG MODE *****" << endl << endl;
+  
   cout << endl << endl;
   cout << "********************************" << endl;
   cout << "Accessing Histograms..." << endl;
@@ -123,7 +125,7 @@ void calcTPEfficiency()
   h_dataIso[2]->GetXaxis()->SetTitle("GeV"); //!--------------------- Set X-Axis Titles       Fail
   h_dataIso[2]->GetYaxis()->SetTitle("Events"); //!------------------ Set Y-Axis Titles       Fail
   h_dataIso[2]->SetStats(0); //!------------------------------------- Disable Stats Box       Fail
-  h_dataIso[2]->SetTitle("MC Probe Muon Rel Iso FAIL"); //!---------- Set Histogram Title     Fail
+  h_dataIso[2]->SetTitle("Data Probe Muon Rel Iso FAIL"); //!-------- Set Histogram Title     Fail
   h_dataIso[2]->SetTitleOffset(1.1,"Y"); //!------------------------- Set Y-Axis Title offset Fail
   
   
@@ -268,39 +270,43 @@ void calcTPEfficiency()
   /**************************************************************
    * Calculate integral of Gaussian fit                         *
    * http://en.wikipedia.org/wiki/Gaussian_function#Properties  *
+   *                                                            *
+   * Integral from -inf to +inf is rootTwoPi*StdDev*Amplitude   *
    **************************************************************/
   
-  // MC Integrals: Gaus1 + Gaus 2
-  float mcTagAll = abs((mcFitResults[0]->GetParams()[0]*mcFitResults[0]->GetParams()[2]))
-    + abs((mcFitResults[0]->GetParams()[3]*mcFitResults[0]->GetParams()[5]));
+  const float rootTwoPi = sqrt(2*3.14159265);
   
-  float mcTagPass_Iso = abs((mcFitResults[1]->GetParams()[0]*mcFitResults[1]->GetParams()[2]))
-    + abs((mcFitResults[1]->GetParams()[3]*mcFitResults[1]->GetParams()[5]));
+  // MC Integrals: Gaus 1 + Gaus 2
+  float mcTagAll = rootTwoPi*(abs((mcFitResults[0]->GetParams()[0]*mcFitResults[0]->GetParams()[2]))
+    + abs((mcFitResults[0]->GetParams()[3]*mcFitResults[0]->GetParams()[5])));
   
-  float mcTagFail_Iso = abs((mcFitResults[2]->GetParams()[0]*mcFitResults[2]->GetParams()[2]))
-    + abs((mcFitResults[2]->GetParams()[3]*mcFitResults[2]->GetParams()[5]));
+  float mcTagPass_Iso = rootTwoPi*(abs((mcFitResults[1]->GetParams()[0]*mcFitResults[1]->GetParams()[2]))
+    + abs((mcFitResults[1]->GetParams()[3]*mcFitResults[1]->GetParams()[5])));
   
-  float mcTagPass_ID = abs((mcFitResults[3]->GetParams()[0]*mcFitResults[3]->GetParams()[2]))
-    + abs((mcFitResults[3]->GetParams()[3]*mcFitResults[3]->GetParams()[5]));
+  float mcTagFail_Iso = rootTwoPi*(abs((mcFitResults[2]->GetParams()[0]*mcFitResults[2]->GetParams()[2]))
+    + abs((mcFitResults[2]->GetParams()[3]*mcFitResults[2]->GetParams()[5])));
   
-  float mcTagFail_ID = abs((mcFitResults[4]->GetParams()[0]*mcFitResults[4]->GetParams()[2]));
-    + abs((mcFitResults[4]->GetParams()[3]*mcFitResults[4]->GetParams()[5]));
+  float mcTagPass_ID = rootTwoPi*(abs((mcFitResults[3]->GetParams()[0]*mcFitResults[3]->GetParams()[2]))
+    + abs((mcFitResults[3]->GetParams()[3]*mcFitResults[3]->GetParams()[5])));
   
-  //  Data Integrals: Gaus1 + Gaus 2
-  float dataTagAll = abs((dataFitResults[0]->GetParams()[0]*dataFitResults[0]->GetParams()[2]));
-    + abs((dataFitResults[0]->GetParams()[3]*dataFitResults[0]->GetParams()[5]));
+  float mcTagFail_ID = rootTwoPi*(abs((mcFitResults[4]->GetParams()[0]*mcFitResults[4]->GetParams()[2]));
+    + abs((mcFitResults[4]->GetParams()[3]*mcFitResults[4]->GetParams()[5])));
   
-  float dataTagPass_Iso = abs((dataFitResults[1]->GetParams()[0]*dataFitResults[1]->GetParams()[2]));
-    + abs((dataFitResults[1]->GetParams()[3]*dataFitResults[1]->GetParams()[5]));
+  //  Data Integrals: Gaus 1 + Gaus 2
+  float dataTagAll = rootTwoPi*(abs((dataFitResults[0]->GetParams()[0]*dataFitResults[0]->GetParams()[2]));
+    + abs((dataFitResults[0]->GetParams()[3]*dataFitResults[0]->GetParams()[5])));
   
-  float dataTagFail_Iso = abs((dataFitResults[2]->GetParams()[0]*dataFitResults[2]->GetParams()[2]));
-    + abs((dataFitResults[2]->GetParams()[3]*dataFitResults[2]->GetParams()[5]));
+  float dataTagPass_Iso = rootTwoPi*(abs((dataFitResults[1]->GetParams()[0]*dataFitResults[1]->GetParams()[2]));
+    + abs((dataFitResults[1]->GetParams()[3]*dataFitResults[1]->GetParams()[5])));
   
-  float dataTagPass_ID = abs((dataFitResults[3]->GetParams()[0]*dataFitResults[3]->GetParams()[2]));
-    + abs((dataFitResults[3]->GetParams()[3]*dataFitResults[3]->GetParams()[5]));
+  float dataTagFail_Iso = rootTwoPi*(abs((dataFitResults[2]->GetParams()[0]*dataFitResults[2]->GetParams()[2]));
+    + abs((dataFitResults[2]->GetParams()[3]*dataFitResults[2]->GetParams()[5])));
   
-  float dataTagFail_ID = abs((dataFitResults[4]->GetParams()[0]*dataFitResults[4]->GetParams()[2]));
-    + abs((dataFitResults[4]->GetParams()[3]*dataFitResults[4]->GetParams()[5]));
+  float dataTagPass_ID = rootTwoPi*(abs((dataFitResults[3]->GetParams()[0]*dataFitResults[3]->GetParams()[2]));
+    + abs((dataFitResults[3]->GetParams()[3]*dataFitResults[3]->GetParams()[5])));
+  
+  float dataTagFail_ID = rootTwoPi*(abs((dataFitResults[4]->GetParams()[0]*dataFitResults[4]->GetParams()[2]));
+    + abs((dataFitResults[4]->GetParams()[3]*dataFitResults[4]->GetParams()[5])));
   
   
   /**************************************************************
@@ -348,6 +354,17 @@ void calcTPEfficiency()
   float finalMCIsoEfficiency    = mcTagPass_Iso/(mcTagPass_Iso+mcTagFail_Iso);
   float finalDataIDEfficiency   = dataTagPass_ID/(dataTagPass_ID+dataTagFail_ID);
   float finalDataIsoEfficiency  = dataTagPass_Iso/(dataTagPass_Iso+dataTagFail_Iso);
+  
+  cout << "Final Numbers:" << endl;
+  cout << "mcPassID: "    << mcTagPass_ID << endl;
+  cout << "mcFailID: "    << mcTagFail_ID << endl;
+  cout << "mcPassIso: "   << mcTagPass_Iso << endl;
+  cout << "mcFailIso: "   << mcTagFail_Iso << endl;
+  
+  cout << "dataPassID: "  << dataTagPass_ID << endl;
+  cout << "dataFailID: "  << dataTagFail_ID << endl;
+  cout << "dataPassIso: " << dataTagPass_Iso << endl;
+  cout << "dataFailIso: " << dataTagFail_Iso << endl << endl;
   
   cout << "Efficiencies: " << endl;
   cout << "MC Efficiencies):" << endl;
